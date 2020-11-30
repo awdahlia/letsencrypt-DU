@@ -1,0 +1,15 @@
+sudo su
+
+stop servis unifi  ===== > service unifi stop
+
+masuk ke root direktori   ===== > cd
+
+jalankan renew ssl      ===== > ./certbot-auto renew
+
+backup file keystore sebelumnya ===== > cp /var/lib/unifi/keystore /var/lib/unifi/keystore.backup.$(date +%F_%R)
+
+Convert cert to PKCS12 ===== > openssl pkcs12 -export -inkey /etc/letsencrypt/live/unifi.datautama.net.id/privkey.pem -in /etc/letsencrypt/live/unifi.datautama.net.id/fullchain.pem -out /etc/letsencrypt/live/unifi.datautama.net.id/fullchain.p12 -name unifi -password pass:unifi
+
+Install certificate ===== > keytool -importkeystore -deststorepass aircontrolenterprise -destkeypass aircontrolenterprise -destkeystore /var/lib/unifi/keystore -srckeystore /etc/letsencrypt/live/unifi.datautama.net.id/fullchain.p12 -srcstoretype PKCS12 -srcstorepass unifi -alias unifi -noprompt
+
+start kembali servis unifi ===== > service unifi start
