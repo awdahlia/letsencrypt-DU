@@ -1,3 +1,3 @@
 # letsencrypt-DU
 
-ojo copas ae, wkwk
+ojo copas wkwk
