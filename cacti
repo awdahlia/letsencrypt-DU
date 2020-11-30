@@ -1,0 +1,8 @@
+sudo su
+
+pastikan port 80 dalam kondisi tidak terpakai apapun,
+karena renew ssl berjalan di port 80, dalam server ini apache2    ===== > service apache2 stop
+
+renew ssl                                                         ===== > certbot --apache -d sla.datautama.co.id
+
+lalu jalankan apache kembali                                      ===== > service apache2 start
