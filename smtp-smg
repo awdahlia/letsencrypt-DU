@@ -1,0 +1,16 @@
+rubah ke root user                                             ===== > sudo su
+
+stop postfix                                                   ===== > service postfix stop
+
+masuk ke direktori ssl                                         ===== > cd /etc/letsencrypt/live/smtp-smg.datautama.net.id/
+
+hapus semua file certificate dalam folder ini                  ===== > rm *.pem
+
+kembali ke root direktory                                      ===== > cd
+
+jalankan certbot untuk mendapatkan ssl letsencrypt yang baru   ===== > certbot certonly --standalone -d smtp-smg.datautama.net.id
+
+jika sukses akan ada file certificate baru pada folder
+/etc/letsencrypt/live/smtp-smg.datautama.net.id/
+
+start postfix kembali                                          ===== > service postfix start
