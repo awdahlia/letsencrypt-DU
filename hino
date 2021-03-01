@@ -14,13 +14,13 @@ masuk ke direktori ssl zimbra                                       ===== > cd /
  
 buat folder bulan ini                                               ===== > mkdir blabla
 
-backup semua file .pem ke folder bulan ini                          ===== > cp *.pem /blabla
+backup semua file .pem ke folder bulan ini                          ===== > cp *.pem blabla/
 
 masuk ke direktori commercial                                       ===== > cd /opt/zimbra/ssl/zimbra/commercial/
 
 buat folder bulan ini                                               ===== > mkdir /blablabla
 
-backup commercial.key ke folder bulan ini                           ===== > cp commercial.key /blablabla
+backup commercial.key ke folder bulan ini                           ===== > cp commercial.key blablabla/
 
 masuk ke direktori ssl yg baru, lihat log setelah renew             ===== > cd /etc/letsencrypt/live/mail.hinocemaco.co.id-0001/
   
@@ -29,7 +29,7 @@ overwrite all                                                       ===== > cp *
 
 masuk ke direktori ssl zimbra lagi                                  ===== > cd /opt/zimbra/ssl/letsencrypt/ 
 
-tambahakan X3 root certificate di chain.pem                         ===== > nano chain.pem
+tambahakan X3 root certificate di chain.pem di akhir baris          ===== > nano chain.pem
 -----BEGIN CERTIFICATE-----
 MIIDSjCCAjKgAwIBAgIQRK+wgNajJ7qJMDmGLvhAazANBgkqhkiG9w0BAQUFADA/
 MSQwIgYDVQQKExtEaWdpdGFsIFNpZ25hdHVyZSBUcnVzdCBDby4xFzAVBgNVBAMT
@@ -57,6 +57,8 @@ lalu copy privkey.pem ke menjadi commercial.key yg baru
 ( sesuai folder commercial)                                           ===== > cp /opt/zimbra/ssl/letsencrypt/privkey.pem /opt/zimbra/ssl/zimbra/commercial/commercial.key
 
 lalu masuk sebagai zimbra,                                            ===== > su -l zimbra
+
+masuk ke folder /opt/zimbra/ssl/letsencrypt/                          ===== >  cd /opt/zimbra/ssl/letsencrypt/
 
 untuk verifikasi certificate                                          ===== > /opt/zimbra/bin/zmcertmgr verifycrt comm privkey.pem cert.pem chain.pem 
 
