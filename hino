@@ -6,7 +6,7 @@ logout ke root                                                      ===== > exit
 
 pindah ke root direktori                                            ===== > cd 
 
-masuk ke direktori letsencrypt                                      ===== > cd /etc/letsencrypt/
+masuk ke direktori letsencrypt                                      ===== > cd /letsencrypt/
 
 renew ssl                                                           ===== > ./letsencrypt-auto certonly --standalone -d mail.hinocemaco.co.id
  
