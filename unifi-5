@@ -1,0 +1,13 @@
+stop unifi controller
+masuk ke directory ssl unifi5    
+=================>   cd /etc/letsencrypt/live/unifi5.datautama.co.id/
+hapus semua file didalam         
+=================>   rm cabundle.ca-bundle cert.crt  cert.pfx  privkey.key
+buka whm dan masuk account datautama.co.id, buka ssl status
+create file dari masing2 key di cpanel ke direktori ubuntu yang masih terbuka menjadi cert.crt , privkey.key, cabundle.ca-cabundle
+gabungkan 3 file tsb menjadi 1 file ssl 
+=============> openssl pkcs12 -export -out cert.pfx -inkey privkey.key -in cert.crt -certfile cabundle.ca-bundle -name unifi
+password = unifi
+import key yg terbuat ke sistem unifi  
+=============> keytool -importkeystore -deststorepass aircontrolenterprise -destkeypass aircontrolenterprise -destkeystore /var/lib/unifi/keystore -srckeystore cert.pfx -srcstoretype PKCS12 -srcstorepass unifi -alias unifi -noprompt
+start unifi controller
