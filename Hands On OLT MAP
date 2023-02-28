@@ -1,0 +1,6 @@
+login router CRS MAP
+vlan 600 digunakan untuk meluruskan layer 2 dari ONT client hingga CRS
+service yg digunakan PPPOE, dengan user specific per unit.
+limiter unit dibuat manual di CRS
+telnet ke 136.1.1.2 ( IP Management OLT )
+user = aud, pass = Klapaucius2k22
